@@ -1,0 +1,66 @@
+﻿@model IEnumerable<PressAnyKey.Models.Usuario>
+
+@{
+    ViewData["Title"] = "ListAmigo";
+    Layout = "~/Views/Shared/_PerfilLayout.cshtml";
+}
+
+<hr />
+<div style="background: #ffffff26;border-radius: 7px;padding: 5px;margin: 6px;">
+    <div class="post-text border-bottom border-dark" style="padding: 4px;">
+        Amigos
+        <a style="color: rgba(255,255,255,.5); float: right;" class="nounderline" asp-controller="Usuario" asp-action="Index">Procurar Amigos</a>
+    </div>
+    <div style="padding: 5px;">
+        @foreach (var item in Model)
+        {
+            <div class="lista-amigos-col" style="padding: 5px;display: inline-flex;">
+                <div>
+                    <div>
+                        <a href="#"><img style="width: 82px;border-radius: 64%;" src="~/images/user.png" alt="Alternate Text" /></a>
+                    </div>
+                    <div>
+                        <a href="#">@Html.DisplayFor(modelItem => item.Nome) @Html.DisplayFor(modelItem => item.Sobrenome)</a>
+                    </div>
+                    <div style="color: #ffffffbf;">
+                        @Html.DisplayFor(modelItem => item.DataNascimento.Day)/@Html.DisplayFor(modelItem => item.DataNascimento.Month)/@Html.DisplayFor(modelItem => item.DataNascimento.Year)
+                    </div>
+                    <div>
+                        <a asp-action="Delete" asp-route-id="@item.Id">Deixar de Seguir</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<!--
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sobrenome)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sobrenome)
+                </td>
+                <td>
+                    <a asp-action="Delete" asp-route-id="@item.Id">Deixar de Seguir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+-->

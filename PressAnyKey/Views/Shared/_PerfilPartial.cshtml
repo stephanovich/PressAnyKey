@@ -1,0 +1,42 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+    <ul class="navbar-nav">
+        @if (SignInManager.IsSignedIn(User))
+        {
+            <!--<li class="nav-item">
+            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a>
+        </li>-->
+
+            <a class="nounderline" asp-controller="Perfil" asp-action="Index">
+                <li class="nav-item">
+                    <button class="nav-link btn btn-link thead-light">Perfil</button>
+                </li>
+            </a>
+            <a class="nounderline" asp-controller="Feed" asp-action="Index">
+                <li class="nav-item">
+                    <button class="nav-link btn btn-link thead-light">Feed</button>
+                </li>
+            </a>
+            <a class="nounderline" asp-controller="Amigo" asp-action="ListAmigo">
+                <li class="nav-item">
+                    <button class="nav-link btn btn-link thead-light">Amigos</button>
+                </li>
+            </a>
+            <li class="nav-item">
+                <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                    <button type="submit" class="nav-link btn btn-link thead-light">Logout</button>
+                </form>
+            </li>
+            <!--<li class="nav-item">
+            <a asp-controller="Usuario" asp-action  ="Create">Perfil</a>
+        </li>-->
+        }
+        else
+        {
+            <li class="nav-item">
+                <a class="nav-link text-light" asp-area="Identity" asp-page="/Account/Login">Login</a>
+            </li>
+        }
+    </ul>

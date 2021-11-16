@@ -1,0 +1,33 @@
+﻿@page
+@model RegisterConfirmationModel
+@{
+    ViewData["Title"] = "Confirmação de email";
+}
+
+
+@{
+    if (@Model.DisplayConfirmAccountLink)
+    {
+    <div style="background: #ffffff17;border-radius: 5px;" class="container">
+        <div style="padding: 10px;">
+            <h4 style="color: rgba(255,255,255,.5);">
+                Confirmação de conta
+            </h4>
+            <div style="padding: 10px;">
+                <a id="confirm-link" href="@Model.EmailConfirmationUrl">Clique aqui para confirmar sua conta</a>
+            </div>
+        </div>
+            
+        </div>
+        
+        /*<p>
+            Por favor insira seus dados <a asp-area="" asp-controller="Usuario" asp-action='Create'>clicando aqui</a>.
+        </p>*/
+    }
+    else
+    {
+        <p>
+            Please check your email to confirm your account.
+        </p>
+    }
+}

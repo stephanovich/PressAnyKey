@@ -1,0 +1,24 @@
+﻿@model PressAnyKey.Models.Amigo
+
+@{
+    ViewData["Title"] = "Unfollow";
+    Layout = "~/Views/Shared/_PerfilLayout.cshtml";
+}
+<hr />
+    <div style="background: #f8f9fa1c;color: #ffffffbf;padding: 11px;text-align: center;" class="container">
+        <h3>Deseja deixar de seguir? @Html.DisplayFor(model => model.UsuarioDestinatario.Nome) @Html.DisplayFor(model => model.UsuarioDestinatario.Sobrenome) </h3>
+        <hr />
+        <div>
+            <div>
+                <form asp-action="Delete">
+                    <input type="hidden" asp-for="IdRemetente" />
+                    <input type="hidden" asp-for="IdDestinatario" />
+                    <div style="padding: 5px;">
+                        <input style="border-radius: .25rem 0px 0px .25rem;" type="submit" value="Deixar de Seguir" class="btn btn-danger" /><a style="border-radius: 0px .25rem .25rem 0px;" class="btn btn-success" asp-controller="Amigo" asp-action="ListAmigo">Cancelar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <hr />
+    </div>
+<hr />

@@ -1,0 +1,90 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"]</title>
+
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="~/js/index.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Gelasio&display=swap" rel="stylesheet">
+
+</head>
+<body style="background: #18262b;">
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-customc1 box-shadow mb-3">
+            <div class="container">
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    <a class="navbar-brand" asp-area="" asp-controller="Feed" asp-action="Index"><img style="width: 80%;" src="~/images/Logo5.png" /></a>
+                }
+                else
+                {
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img style="width: 80%;" src="~/images/Logo5.png" /></a>
+                }
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <partial name="_FeedPartial" />
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div style="display: flex;">
+        <div style="width: 25%; border: solid 1px #0000001f; border-width: 0px 1px 0px 0px;" class="ff-Raleway">
+            <div style="position: sticky; top: 0;padding: 4px;">
+                <div id="Feed-Area">
+                    <ul class="list-group">
+                        <a asp-controller="Perfil" asp-action="Index" class="nounderline">
+                            <li style="padding: .3rem 0.78rem;" class="custom-list-group1">
+                                Meu perfil
+                            </li>
+                        </a>
+                        <a asp-controller="Feed" asp-action="Index" class="nounderline">
+                            <li style="padding: .3rem 0.78rem;" class="custom-list-group1">
+                                Feed de Noticias
+                            </li>
+                        </a>
+                    </ul>
+                </div>
+                <hr />
+                <div id="ConfConta" class="ff-Raleway">
+                    <ul class="list-group">
+                        <li style="padding: .3rem 0.78rem;" class="custom-list-group1">
+
+                            <p class="text-light-c2">Configurações</p>
+
+                            <ul class="list-group">
+                                <a href="#" class="nounderline">
+                                    <li style="padding: .3rem 0.78rem;" class="custom-list-group1">
+                                        Alterar Informações pessoais
+                                    </li>
+                                </a>
+                                <a class="nounderline" href="#">
+                                    <li style="padding: .3rem 0.78rem;" class="custom-list-group1">
+                                        Alterar segurança
+                                    </li>
+                                </a>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        @RenderBody()
+    </div>
+    <footer style="position: inherit !important; background:#ffffff0d;" class="custom-bt footer text-muted">
+        <div style="padding: 16px 9%;">
+            &copy; 2019 - PressAnyKey - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+</body>
+</html>

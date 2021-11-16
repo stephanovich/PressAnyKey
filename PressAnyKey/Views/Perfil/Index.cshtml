@@ -1,0 +1,38 @@
+﻿@model IEnumerable<PressAnyKey.Models.Postagem>
+
+@{
+    Layout = "~/Views/Shared/_PerfilLayout.cshtml";
+    ViewData["Title"] = "Perfil";
+}
+<hr />
+<div class="container">
+    <div>
+        <div style="border-radius: 5px; background: #f8f9fa1c;">
+            <div style="left: 50%; right: 50%; transform: translate(-50%, 0%);" class="col-md-6">
+                <div style="padding: 11px 0px 0%;" class="form-group text-light ff-Raleway">
+                    Criar publicação
+                    <textarea id="caixa_postagem" style="width: 100%;height: 8pc;" class="form-control-c1 noresize" type="text" name="mensagem" value="mensagem"></textarea>
+
+                    <div style="padding: 5px 0px; text-align: right;" class="form-group">
+                        <input id="thepost" class="btn btn-primary" type="submit" value="Postar" />
+                    </div>
+                </div>
+
+                <!--<form asp-controller="Postar" asp-action="Post" id="theform">
+
+            <div style="padding: 11px 0px 0%;" class="form-group text-light">
+                Criar publicação
+                <textarea style="width: 100%;height: 8pc;" class="form-control-c1 noresize" type="text" name="mensagem" value="mensagem"></textarea>
+
+                <div style="padding: 5px 0px; text-align: right;" class="form-group">
+                    <input class="btn btn-primary" type="submit" value="Publicar" />
+                </div>
+            </div>
+        </form>-->
+            </div>
+        </div>
+    </div>
+</div>
+<div id="feedbox" class="container ff-Raleway">
+    
+</div>
